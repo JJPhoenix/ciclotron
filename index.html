@@ -30,14 +30,19 @@
     <body>
         <nav>
             <div class="nav-wrapper blue darken-4">
-                <a class="brand-logo show-on-large hide-on-med-and-down">Simulacion de acelerador de particulas</a>
-                <a class="brand-logo show-on-medium-and-down hide-on-med-and-up">ABP Fisica</a>
+                <a class="brand-logo">ABP Fisica</a>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a id="mostrarinfo">Informacion</a></li>
                     <li><a id="mostrarsimu">Simulador</a></li>
                 </ul>
             </div>
         </nav>
+
+        <ul class="side-nav" id="slide-out">
+            <li><a id="mostrarinfo1">Informacion</a></li>
+            <li><a id="mostrarsimu1">Simulador</a></li>
+        </ul>
 
 
         <main class="container">
@@ -244,8 +249,11 @@
                     responsiveThreshold : 1920
                 });
                 $('select').material_select();
+
             });
             $('.modal').modal();
+
+
 
             $('#mostrarinfo').click(function() {
                 $('#simulador').hide('slow');
@@ -253,6 +261,15 @@
             });
 
             $('#mostrarsimu').click(function () {
+                $('#info').hide('slow');
+                $('#simulador').show('slow');
+            });
+            $('#mostrarinfo1').click(function() {
+                $('#simulador').hide('slow');
+                $('#info').show('slow');
+            });
+
+            $('#mostrarsimu1').click(function () {
                 $('#info').hide('slow');
                 $('#simulador').show('slow');
             })
