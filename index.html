@@ -44,9 +44,25 @@
             <li><a id="mostrarsimu1">Simulador</a></li>
         </ul>
 
+        <div class="parallax-container">
+            <div class="parallax"><img src="media/acelerador1.jpg"></div>
+        </div>
 
         <main class="container">
-            <div class="row container" id="info" style="display: none; text-align: justify">
+
+            <div class="row" id="home" style="text-align: center">
+                <div class="row" >
+                    <h1>Acelerardores y detectores</h1>
+                </div>
+                <div class="row">
+                    <h2>Profesor: CAÑOTE FAJARDO ,PERCY VICTOR</h2>
+                </div>
+                <div class="row">
+                    <h3>Universidad Nacional de Ingenieria</h3>
+                </div>
+            </div>
+
+            <div class="row " id="info" style="display: none; text-align: justify; align-content: center">
                 <div class="row">
                     <div class="col s12">
                         <h1>
@@ -212,6 +228,10 @@
 
         </main>
 
+        <div class="parallax-container">
+            <div class="parallax"><img src="media/proyecto.jpg"></div>
+        </div>
+
         <footer class="page-footer blue darken-4">
             <div class="container">
                 <div class="row">
@@ -249,7 +269,7 @@
                     responsiveThreshold : 1920
                 });
                 $('select').material_select();
-
+                $('.parallax').parallax();
             });
             $('.modal').modal();
 
@@ -257,19 +277,23 @@
 
             $('#mostrarinfo').click(function() {
                 $('#simulador').hide('slow');
+                $('#home').hide('slow');
                 $('#info').show('slow');
             });
 
             $('#mostrarsimu').click(function () {
+                $('#home').hide('slow');
                 $('#info').hide('slow');
                 $('#simulador').show('slow');
             });
             $('#mostrarinfo1').click(function() {
+                $('#home').hide('slow');
                 $('#simulador').hide('slow');
                 $('#info').show('slow');
             });
 
             $('#mostrarsimu1').click(function () {
+                $('#home').hide('slow');
                 $('#info').hide('slow');
                 $('#simulador').show('slow');
             })
