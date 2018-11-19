@@ -32,49 +32,49 @@ function app_2(){
     var wChar= ctx.measureText('m').width;
 
 
-    var RADIO=50,      //radio en cm del ciclotrÃ³n
+    var RADIO=50,      //radio en centimentros del ciclotron
         escala=(canvas.height-3*wChar)/(2*RADIO),
         orgX=wChar+RADIO*escala,
         orgXX=3*wChar+RADIO*escala,
         orgY=wChar+RADIO*escala,
         orgTexto=2*RADIO*escala+7*wChar,
         orgTray,
-//semiperiodo
-        sPeriodo,      //   el introducido
-        SemiPeriodo,      //el teÃ³rico
-//PosiciÃ³n angular, intervalo angular
+        // semi-periodo
+        sPeriodo,      //   periodo introducido
+        SemiPeriodo,      // periodo teorico
+        // posicion angular , intervalo angular
         angulo=0,
         incAngulo=2,
         anguloCorte=360,         //traza arcos de 5 grados
-//tiempo e intervalo de tiempo
+        // tiempo e intervalo de tiempo
         t=0,
         dt,
-//polos
+        //polos
         bPoloMas=true,
-//sale del ciclotron
+        //sale del ciclotron
         bCorte=false,
-//deplazamiento del origen vertical orgY
+        //deplazamiento del origen vertical org Y
         dOrgY=0.0,
-//puntos de corte
+        //puntos de corte
         x=0.0,
         y=0.0,
-//parÃ¡metros del ciclotrÃ³n
+        //Parametro del ciclotron
         indice=0,
-        campo=200,       //campo magnÃ©tico en gauss
-        ddp=500,         //diferencia de potencial en volts
-//masa y carga de las partÃ­culas
+        campo=200,       //Campo magnetico en Gauss
+        ddp=500,         //Diferencia de potencial en Volts
+        // masa y carga de las particulas
         masa=[1, 4, 2, 3, 12, 16],
         carga=[1, 2, 1, 1, 1, 1],
-//radio de las Ã³rbitas
+        //radio de las orbitas
         r1=144.482*Math.sqrt(masa[indice]*ddp/carga[indice])/campo,
-//energÃ­a final
+        //Energia final
         energia=0,
         bTermina=false,
         pol=[];
 
 
     function ciclotron(g){
-//ciclotrÃ³n
+        //ciclotron
         g.strokeStyle='black';
         g.fillStyle='lightgray';
         g.beginPath();
@@ -95,8 +95,7 @@ function app_2(){
         g.stroke();
 
         bornes(g, bPoloMas);
-
-//flechas que indican la direcciÃ³n del campo
+        //flechas que indican la direccion del campo
         var x1=orgXX+RADIO*escala;
         dibujaFlecha(g, Math.PI/4, x1, canvas.height-4*wChar, 4*wChar,'red');
         g.fillText('B', x1+4*wChar, canvas.height-7*wChar);
@@ -249,7 +248,7 @@ function app_2(){
         if(bCorte){
             if(angulo>anguloCorte){
                 bTermina=true;
-//sale por la tangente cuando toca la periferia del ciclotrÃ³n, pone una flecha
+//sale por la tangente cuando toca la periferia del ciclotron, pone una flecha
                 if(anguloCorte>180){
                     dibujaFlecha(g, 3*Math.PI/2+Math.atan2(y-dOrgY,x), orgX-x*escala, orgY+y*escala, 3*wChar, 'red');
                 }else{
