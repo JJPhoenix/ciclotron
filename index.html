@@ -12,6 +12,7 @@
         <script type="text/javascript"  src="css/back_top.js"></script>
         <script src='ciclotron.js'></script>
         <script src='ciclotron_1.js'></script>
+        <link type="text/css" rel="stylesheet" href="css/footerstyle.css">
         <script>
             function printValue(sliderID, textbox) {
                 var x = document.getElementById(textbox);
@@ -27,115 +28,176 @@
     </head>
 
     <body>
-
         <nav>
             <div class="nav-wrapper blue darken-4">
-                <a href="#!" class="brand-logo show-on-large hide-on-med-and-down">Simulacion de acelerador de particulas</a>
-                <a href="#!" class="brand-logo show-on-medium-and-down hide-on-med-and-up">Acelerador de particulas</a>
+                <a class="brand-logo show-on-large hide-on-med-and-down">Simulacion de acelerador de particulas</a>
+                <a class="brand-logo show-on-medium-and-down hide-on-med-and-up">ABP Fisica</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a id="mostrarinfo">Informacion</a></li>
+                    <li><a id="mostrarsimu">Simulador</a></li>
+                </ul>
             </div>
         </nav>
 
-        <div class="row container">
-            <div class="col s12">
+
+        <main class="container">
+            <div class="row container" id="info" style="display: none; text-align: justify">
                 <div class="row">
-                    <div class="s6">
-                        <P>
-                            Presentamos el simulador de trayectoria de un acelerador de particulas. Lo cual usaremos para desarrollar el siguiente problema ABP
-                        </P>
-                    </div>
-                    <div class="s6">
-
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Problema Abp</a>
-
-                        <!-- Modal Structure -->
-                        <div id="modal1" class="modal">
-                            <div class="modal-content">
-                                <p>
-                                    Poco tiempo después de ser galardonado con el premio Nobel de Física en 1939 por el invento y desarrollo del ciclotrón, un dispositivo para acelerar partículas subatómicas hecho con ayuda de su tutelado Stanley Livingston, el físico estadounidense Ernest O. Lawrence se encontraba exponiendo sobre la mejora de la aplicación del electromagnetismo en el funcionamiento del ciclotrón a los estudiantes de la Universidad de California; el físico explicaba que el método directo de acelerar iones utilizando la diferencia de potencial presentaba grandes dificultades experimentales asociados a los campos eléctricos intensos; y que el ciclotrón evitaba estas dificultades por medio de la aceleración múltiple de los iones hasta alcanzar elevadas velocidades sin el empleo de altos voltajes. Esta conclusión la defendía por el hecho de que la mayoría de los actuales aceleradores de partículas de alta energía descienden de su ciclotrón de protones. Explico, también, que el funcionamiento de ese ciclotrón consistía en que a las placas semicirculares huecas dentro de un campo magnético uniforme normal al plano de estas, se le aplicaban oscilaciones de alta frecuencia produciendo un campo eléctrico oscilante en la región diametral entre ambas; como consecuencia, durante el semiciclo el campo eléctrico acelera los iones, formados en la región diametral, hacia el interior de un D’s, donde se es obliga recorrer una trayectoria circular mediante el campo magnético y finalmente, aparecerán de nuevo en la región intermedia. El campo magnético se ajusta de modo que el tiempo que se necesita para recorrer la trayectoria semicircular dentro del D sea igual al semiperiodo de las oscilaciones; es por esto que cuando los iones vuelvan a la región intermedia, el campo eléctrico habrá invertido su sentido para que reciban un segundo aumento de velocidad al pasar al interior de la otra D. También se refirió al hecho de que si bien los radios de las trayectorias son proporcionales a las velocidades de los iones y el tiempo que se necesita para el recorrido de una trayectoria semicircular es independiente de sus velocidades, entonces el tiempo no dependerá del radio de la trayectoria; por consiguiente, si los iones emplean exactamente medio ciclo en un primera semicircunferencia, se comportaran de modo análogo en todas las sucesivas y por tanto, se moverán en espiral y en resonancia con el campo oscilante hasta que alcancen la periferia del aparato.
-                                    Acabando esta explicación, el físico propuso un reto a los estudiantes como manera de demostración sobre el funcionamiento del ciclotrón, planteo que si bien la trayectoria circular que se describía por el recorrido del ion en los D’s se daba cuando el tiempo requerido para recorrer la trayectoria semicircular dentro de estos era igual al semiperiodo de las oscilaciones de la fem alterna conectada a estos produciendo una mayor eficiencia, por lo que propone acelerar un protón y formar un radioisótopo y ver una aplicación de esta.
-                                    Eligiendo los siguientes datos:
-                                </p>
-                                <ul class="collection">
-                                    <li class="collection-item">Radio del ciclotrón: 50 cm</li>
-                                    <li class="collection-item">Ion a acelerar: Protón,</li>
-                                    <li class="collection-item">Campo magnético,</li>
-                                    <li class="collection-item">Diferencia de potencial entre las D’s,</li>
-                                </ul>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
-                            </div>
-                        </div>
+                    <div class="col s12">
+                        <h1>
+                            Aceleradores y detectores
+                        </h1>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12" style="height: auto">
-                        <ul id="tabs-swipe-demo" class="tabs">
-                            <li class="tab col s3"><a href="#test-swipe-1">Simulador 1</a></li>
-                            <li class="tab col s3"><a class="active" href="#test-swipe-2">Simulador 2</a></li>
+                    <div class="col s12 l8" style="text-align: justify">
+                        <blockquote>
+                            Los aceleradores y los detectores utilizados en las investigaciones en física
+                            de partículas sirven y han servido desde hace más de 100 años para
+                            la detección y cura de enfermedades. Gracias a los avances en la física
+                            experimental de partículas, se han desarrollado a lo largo de los años aceleradores
+                            más potentes y sistemas de detección más precisos y sofisticados.
+                            Estos, conjuntamente con los modernos sistemas de cómputo, han permitido
+                            aplicaciones hasta hace poco tiempo impensadas en la medicina. En
+                            este trabajo se esboza la historia de estos instrumentos, sus principios de
+                            funcionamiento y sus ventajas en las aplicaciones médicas, especialmente
+                            en el campo de la detección y tratamiento de tumores.
+                        </blockquote>
+                    </div>
+                    <div class="col s6 offset-s3 l4">
+                        <ul class="collapsible popout">
+                            <li>
+                                <div class="collapsible-header">
+                                    <i class="material-icons">filter_drama</i>Aceleradores
+                                </div>
+                                <div class="collapsible-body " style="text-align: justify">
+                            <span>
+                                Un acelerador de partículas es un dispositivo que utiliza campos
+                                electromagnéticos para acelerar partículas cargadas a altas
+                                velocidades, y así, hacerlas colisionar con otras partículas.
+                            </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">
+                                    <i class="material-icons">place</i>Detectores
+                                </div>
+                                <div class="collapsible-body" style="text-align: justify">
+                            <span>
+                                En física de partículas experimental, un detector de partículas, también
+                                conocido como detector de radiación, es un dispositivo usado para rastrear
+                                e identificar partículas de alta energía, como las producidas por la desintegración
+                                radiactiva, la radiación cósmica o las reacciones en un acelerador de partículas.
+                            </span>
+                                </div>
+                            </li>
                         </ul>
                     </div>
-                    <div id="test-swipe-1" class="col s12" style="width:1290px; height:300px">
-                        <div>
-                            <canvas id='canvas_1' width='645' height='300'></canvas>
-                            <div id='controls' style="width:645px; height:300px">
-                                <label for="ddp">Diferencia de potencial (V):</label>
-                                <input type='range' id='ddp'  min='50' max='500' step='20' value='100' onchange="printValue('ddp','ddp_1')"/>
-                                <input type='text' id='ddp_1'  value='100' size='3'/><br/>
-                                <label for="magnetico">Campo magn&eacute;tico (gauss):</label>
-                                <input type='range' id='magnetico'  min='50' max='500' step='20' value='100' onchange="printValue('magnetico','magnetico_1')"/>
-                                <input type='text' id='magnetico_1' value='100' size='3'/><br/>
+                </div>
+            </div>
 
-                                <label for="particulas">Part&iacute;culas:  </label>
-                                <div class="input-field col s12">
-                                    <select id='particulas'>
-                                        <option >Prot&oacute;n (+)</option>
-                                        <option>Part&iacute;cula alfa (++)</option>
-                                        <option>i&oacute;n deuterio (+)</option>
-                                        <option>i&oacute;n tritio (+)</option>
-                                        <option>i&oacute;n carbono (+)</option>
-                                        <option>i&oacute;n ox&iacute;geno (+)</option>
-                                    </select>
+            <div class="row container" id="simulador" style="display: none; text-align: justify">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="s6">
+                            <P>
+                                Presentamos el simulador de trayectoria de un acelerador de particulas. Lo cual usaremos para desarrollar el siguiente problema ABP
+                            </P>
+                        </div>
+                        <div class="s6">
+
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Problema Abp</a>
+
+                            <!-- Modal Structure -->
+                            <div id="modal1" class="modal">
+                                <div class="modal-content">
+                                    <p>
+                                        Poco tiempo después de ser galardonado con el premio Nobel de Física en 1939 por el invento y desarrollo del ciclotrón, un dispositivo para acelerar partículas subatómicas hecho con ayuda de su tutelado Stanley Livingston, el físico estadounidense Ernest O. Lawrence se encontraba exponiendo sobre la mejora de la aplicación del electromagnetismo en el funcionamiento del ciclotrón a los estudiantes de la Universidad de California; el físico explicaba que el método directo de acelerar iones utilizando la diferencia de potencial presentaba grandes dificultades experimentales asociados a los campos eléctricos intensos; y que el ciclotrón evitaba estas dificultades por medio de la aceleración múltiple de los iones hasta alcanzar elevadas velocidades sin el empleo de altos voltajes. Esta conclusión la defendía por el hecho de que la mayoría de los actuales aceleradores de partículas de alta energía descienden de su ciclotrón de protones. Explico, también, que el funcionamiento de ese ciclotrón consistía en que a las placas semicirculares huecas dentro de un campo magnético uniforme normal al plano de estas, se le aplicaban oscilaciones de alta frecuencia produciendo un campo eléctrico oscilante en la región diametral entre ambas; como consecuencia, durante el semiciclo el campo eléctrico acelera los iones, formados en la región diametral, hacia el interior de un D’s, donde se es obliga recorrer una trayectoria circular mediante el campo magnético y finalmente, aparecerán de nuevo en la región intermedia. El campo magnético se ajusta de modo que el tiempo que se necesita para recorrer la trayectoria semicircular dentro del D sea igual al semiperiodo de las oscilaciones; es por esto que cuando los iones vuelvan a la región intermedia, el campo eléctrico habrá invertido su sentido para que reciban un segundo aumento de velocidad al pasar al interior de la otra D. También se refirió al hecho de que si bien los radios de las trayectorias son proporcionales a las velocidades de los iones y el tiempo que se necesita para el recorrido de una trayectoria semicircular es independiente de sus velocidades, entonces el tiempo no dependerá del radio de la trayectoria; por consiguiente, si los iones emplean exactamente medio ciclo en un primera semicircunferencia, se comportaran de modo análogo en todas las sucesivas y por tanto, se moverán en espiral y en resonancia con el campo oscilante hasta que alcancen la periferia del aparato.
+                                        Acabando esta explicación, el físico propuso un reto a los estudiantes como manera de demostración sobre el funcionamiento del ciclotrón, planteo que si bien la trayectoria circular que se describía por el recorrido del ion en los D’s se daba cuando el tiempo requerido para recorrer la trayectoria semicircular dentro de estos era igual al semiperiodo de las oscilaciones de la fem alterna conectada a estos produciendo una mayor eficiencia, por lo que propone acelerar un protón y formar un radioisótopo y ver una aplicación de esta.
+                                        Eligiendo los siguientes datos:
+                                    </p>
+                                    <ul class="collection">
+                                        <li class="collection-item">Radio del ciclotrón: 50 cm</li>
+                                        <li class="collection-item">Ion a acelerar: Protón,</li>
+                                        <li class="collection-item">Campo magnético,</li>
+                                        <li class="collection-item">Diferencia de potencial entre las D’s,</li>
+                                    </ul>
                                 </div>
-                                <div id='botones'>
-                                    <a class="waves-effect waves-light btn" id='nuevo' value='Nuevo'><i class="material-icons">play_arrow</i>Play</a>
+                                <div class="modal-footer">
+                                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div id="test-swipe-2" class="col s12" style="width:1290px; height:950px">
-                        <div>
-                            <canvas id='canvas_2' width='645' height='300'></canvas>
-                            <div id='controls' style='align:left; width:625px; height:300px'>
-                                <label for="particulas">Part&iacute;culas:  </label>
-                                <div class="input-field col s12">
-                                    <select id='particulas_2'>
-                                        <option >Prot&oacute;n (+)</option>
-                                        <option>Part&iacute;cula alfa (++)</option>
-                                        <option>i&oacute;n deuterio (+)</option>
-                                        <option>i&oacute;n tritio (+)</option>
-                                        <option>i&oacute;n carbono (+)</option>
-                                        <option>i&oacute;n ox&iacute;geno (+)</option>
-                                    </select>
+                    <div class="row">
+                        <div class="col s12" style="height: auto">
+                            <ul id="tabs-swipe-demo" class="tabs">
+                                <li class="tab col s3"><a href="#test-swipe-1">Simulador 1</a></li>
+                                <li class="tab col s3"><a class="active" href="#test-swipe-2">Simulador 2</a></li>
+                            </ul>
+                        </div>
+                        <div id="test-swipe-1" class="col s12" style="width:1290px; height:300px">
+                            <div>
+                                <canvas id='canvas_1' width='645' height='300'></canvas>
+                                <div id='controls' style="width:645px; height:300px">
+                                    <label for="ddp">Diferencia de potencial (V):</label>
+                                    <input type='range' id='ddp'  min='50' max='500' step='20' value='100' onchange="printValue('ddp','ddp_1')"/>
+                                    <input type='text' id='ddp_1'  value='100' size='3'/><br/>
+                                    <label for="magnetico">Campo magn&eacute;tico (gauss):</label>
+                                    <input type='range' id='magnetico'  min='50' max='500' step='20' value='100' onchange="printValue('magnetico','magnetico_1')"/>
+                                    <input type='text' id='magnetico_1' value='100' size='3'/><br/>
+
+                                    <label for="particulas">Part&iacute;culas:  </label>
+                                    <div class="input-field col s12">
+                                        <select id='particulas'>
+                                            <option >Prot&oacute;n (+)</option>
+                                            <option>Part&iacute;cula alfa (++)</option>
+                                            <option>i&oacute;n deuterio (+)</option>
+                                            <option>i&oacute;n tritio (+)</option>
+                                            <option>i&oacute;n carbono (+)</option>
+                                            <option>i&oacute;n ox&iacute;geno (+)</option>
+                                        </select>
+                                    </div>
+                                    <div id='botones'>
+                                        <a class="waves-effect waves-light btn" id='nuevo' value='Nuevo'><i class="material-icons">play_arrow</i>Play</a>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div id="test-swipe-2" class="col s12" style="width:1290px; height:950px">
+                            <div>
+                                <canvas id='canvas_2' width='645' height='300'></canvas>
+                                <div id='controls' style='align:left; width:625px; height:300px'>
+                                    <label for="particulas">Part&iacute;culas:  </label>
+                                    <div class="input-field col s12">
+                                        <select id='particulas_2'>
+                                            <option >Prot&oacute;n (+)</option>
+                                            <option>Part&iacute;cula alfa (++)</option>
+                                            <option>i&oacute;n deuterio (+)</option>
+                                            <option>i&oacute;n tritio (+)</option>
+                                            <option>i&oacute;n carbono (+)</option>
+                                            <option>i&oacute;n ox&iacute;geno (+)</option>
+                                        </select>
+                                    </div>
 
-                                <label for="semiperiodo">Semiperiodo (&mu;s):</label><input type='range' id='semiperiodo'  min='0.1' max='3' step='0.1' value='1' onchange="printValue('semiperiodo','semiperiodo_1')"/>
-                                <input type='text' id='semiperiodo_1'  value='1' size='3'/><br/>
+                                    <label for="semiperiodo">Semiperiodo (&mu;s):</label><input type='range' id='semiperiodo'  min='0.1' max='3' step='0.1' value='1' onchange="printValue('semiperiodo','semiperiodo_1')"/>
+                                    <input type='text' id='semiperiodo_1'  value='1' size='3'/><br/>
 
-                                <label for="ddp">Diferencia de potencial (V):</label><input type='range' id='ddp_2'  min='50' max='700' step='50' value='500' onchange="printValue('ddp_2','ddp_2_1')"/>
-                                <input type='text' id='ddp_2_1'  value='500' size='3'/><br/>
+                                    <label for="ddp">Diferencia de potencial (V):</label><input type='range' id='ddp_2'  min='50' max='700' step='50' value='500' onchange="printValue('ddp_2','ddp_2_1')"/>
+                                    <input type='text' id='ddp_2_1'  value='500' size='3'/><br/>
 
-                                <label for="magnetico">Campo magn&eacute;tico (gauss):</label><input type='range' id='magnetico_2'  min='50' max='500' step='50' value='200' onchange="printValue('magnetico_2','magnetico_2_1')"/>
-                                <input type='text' id='magnetico_2_1'  value='200' size='3'/>
+                                    <label for="magnetico">Campo magn&eacute;tico (gauss):</label><input type='range' id='magnetico_2'  min='50' max='500' step='50' value='200' onchange="printValue('magnetico_2','magnetico_2_1')"/>
+                                    <input type='text' id='magnetico_2_1'  value='200' size='3'/>
 
-                                <div id='botones'>
+                                    <div id='botones'>
 
 
-                                    <input id='nuevo_2' type='button' value='Nuevo'/>
-                                    <input id='empieza' type='button' value='&#9658;'/>
-                                    <input id='pausa' type='button' value='||'/>
-                                    <input id='paso' type='button' value='&gt;|' style='display:none'/>
+                                        <input id='nuevo_2' type='button' value='Nuevo'/>
+                                        <input id='empieza' type='button' value='&#9658;'/>
+                                        <input id='pausa' type='button' value='||'/>
+                                        <input id='paso' type='button' value='&gt;|' style='display:none'/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +205,7 @@
                 </div>
             </div>
 
-        </div>
+        </main>
 
         <footer class="page-footer blue darken-4">
             <div class="container">
@@ -184,6 +246,16 @@
                 $('select').material_select();
             });
             $('.modal').modal();
+
+            $('#mostrarinfo').click(function() {
+                $('#simulador').hide('slow');
+                $('#info').show('slow');
+            });
+
+            $('#mostrarsimu').click(function () {
+                $('#info').hide('slow');
+                $('#simulador').show('slow');
+            })
         </script>
     </body>
 </html>
