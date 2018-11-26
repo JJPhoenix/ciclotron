@@ -10,8 +10,7 @@
         <script src="framework/jquery/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="framework/materialize-v0.100.2/materialize/js/materialize.min.js"></script>
         <script type="text/javascript"  src="css/back_top.js"></script>
-        <script src='ciclotron.js'></script>
-        <script src='ciclotron_1.js'></script>
+        <script src='app/ciclotron.js'></script>
         <link type="text/css" rel="stylesheet" href="css/footerstyle.css">
         <script>
             function printValue(sliderID, textbox) {
@@ -21,7 +20,6 @@
             }
             window.onload = function(){
                 app_1();
-                app_2();
             }
         </script>
 
@@ -31,7 +29,7 @@
         <nav>
             <div class="nav-wrapper blue darken-4">
                 <a class="brand-logo">ABP Fisica</a>
-                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a id="mostrarinfo">Informacion</a></li>
                     <li><a id="mostrarsimu">Simulador</a></li>
@@ -151,71 +149,51 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col s12" style="height: auto">
-                            <ul id="tabs-swipe-demo" class="tabs">
-                                <li class="tab col s3"><a href="#test-swipe-1">Simulador 1</a></li>
-                                <li class="tab col s3"><a class="active" href="#test-swipe-2">Simulador 2</a></li>
-                            </ul>
-                        </div>
-                        <div id="test-swipe-1" class="col s12" style="width:1290px; height:300px">
-                            <div>
+
+                    <div class="row" style="width:auto; align-content: center">
+                        <div class="col s12" >
+                            <div class="card" style="width:645px; height:300px">
                                 <canvas id='canvas_1' width='645' height='300'></canvas>
                                 <div id='controls' style="width:645px; height:300px">
-                                    <label for="ddp" >Diferencia de potencial (V):</label>
-                                    <input type='range' id='ddp'  min='50' max='500' step='20' value='100' onchange="printValue('ddp','ddp_1')"/>
-                                    <input type='text' id='ddp_1'  value='100' size='3'/><br/>
-                                    <label for="magnetico">Campo magn&eacute;tico (gauss):</label>
-                                    <input type='range' id='magnetico'  min='50' max='500' step='20' value='100' onchange="printValue('magnetico','magnetico_1')"/>
-                                    <input type='text' id='magnetico_1' value='100' size='3'/><br/>
+                                    <div class="col s12">
+                                        <form>
+                                            <p class="range-field">
+                                                <label for="ddp" >Diferencia de potencial (V):</label>
+                                                <input type='range' id='ddp'  min='50' max='500' step='10' value='100' onchange="printValue('ddp','ddp_1')"/>
+                                            </p>
+                                        </form>
+                                    </div>
 
-                                    <label for="particulas">Part&iacute;culas:  </label>
-                                    <div class="input-field col s12">
+                                    <div class="col s12">
+                                        <input type='text' id='ddp_1'  value='100' size='3'/><br/>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <form>
+                                            <p class="range-field">
+                                                <label for="magnetico">Campo magn&eacute;tico (gauss):</label>
+                                                <input type='range' id='magnetico'  min='50' max='500' step='10' value='100' onchange="printValue('magnetico','magnetico_1')"/>
+                                            </p>
+                                        </form>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <input type='text' id='magnetico_1' value='100' size='3'/><br/>
+                                    </div>
+
+                                    <div class="input-field col s6">
                                         <select id='particulas'>
-                                            <option >Prot&oacute;n (+)</option>
-                                            <option>Part&iacute;cula alfa (++)</option>
-                                            <option>i&oacute;n deuterio (+)</option>
-                                            <option>i&oacute;n tritio (+)</option>
-                                            <option>i&oacute;n carbono (+)</option>
-                                            <option>i&oacute;n ox&iacute;geno (+)</option>
+                                            <option >Protón (+)</option>
+                                            <option>Partícula alfa (++)</option>
+                                            <option>ión deuterio (+)</option>
+                                            <option>ión tritio (+)</option>
+                                            <option>ión carbono (+)</option>
+                                            <option>ión oxígeno (+)</option>
                                         </select>
+                                        <label for="particulas">Partícula:  </label>
                                     </div>
-                                    <div id='botones'>
+                                    <div id='botones' class="col s6">
                                         <a class="waves-effect waves-light btn" id='nuevo' value='Nuevo'><i class="material-icons">play_arrow</i>Play</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="test-swipe-2" class="col s12" style="width:1290px; height:950px">
-                            <div>
-                                <canvas id='canvas_2' width='645' height='300'></canvas>
-                                <div id='controls' style='align:left; width:625px; height:300px'>
-                                    <label for="particulas">Part&iacute;culas:  </label>
-                                    <div class="input-field col s12">
-                                        <select id='particulas_2'>
-                                            <option >Prot&oacute;n (+)</option>
-                                            <option>Part&iacute;cula alfa (++)</option>
-                                            <option>i&oacute;n deuterio (+)</option>
-                                            <option>i&oacute;n tritio (+)</option>
-                                            <option>i&oacute;n carbono (+)</option>
-                                            <option>i&oacute;n ox&iacute;geno (+)</option>
-                                        </select>
-                                    </div>
-
-                                    <label for="semiperiodo">Semiperiodo (&mu;s):</label><input type='range' id='semiperiodo'  min='0.1' max='3' step='0.1' value='1' onchange="printValue('semiperiodo','semiperiodo_1')"/>
-                                    <input type='text' id='semiperiodo_1'  value='1' size='3'/><br/>
-
-                                    <label for="ddp">Diferencia de potencial (V):</label><input type='range' id='ddp_2'  min='50' max='700' step='50' value='500' onchange="printValue('ddp_2','ddp_2_1')"/>
-                                    <input type='text' id='ddp_2_1'  value='500' size='3'/><br/>
-
-                                    <label for="magnetico">Campo magn&eacute;tico (gauss):</label><input type='range' id='magnetico_2'  min='50' max='500' step='50' value='200' onchange="printValue('magnetico_2','magnetico_2_1')"/>
-                                    <input type='text' id='magnetico_2_1'  value='200' size='3'/>
-
-                                    <div id='botones'>
-                                        <input id='nuevo_2' type='button' value='Nuevo'/>
-                                        <input id='empieza' type='button' value='&#9658;'/>
-                                        <input id='pausa' type='button' value='||'/>
-                                        <input id='paso' type='button' value='&gt;|' style='display:none'/>
                                     </div>
                                 </div>
                             </div>
@@ -261,10 +239,6 @@
         <script>
             $(".button-collapse").sideNav();
             $(document).ready(function(){
-                $('ul.tabs').tabs({
-                    swipeable : true,
-                    responsiveThreshold : 1920
-                });
                 $('select').material_select();
                 $('.parallax').parallax();
             });

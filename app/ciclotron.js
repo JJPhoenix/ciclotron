@@ -1,9 +1,6 @@
 function app_1(){
-
-
-
     function drawGrid(color, stepx, stepy) {
-        ctx.save()
+        ctx.save();
         ctx.strokeStyle = color;
         ctx.fillStyle = '#ffffff';
         ctx.lineWidth = 0.5;
@@ -31,27 +28,31 @@ function app_1(){
     ctx.font = '13px Helvetica';
     var wChar= ctx.measureText('m').width;
 
-    var RADIO=50,      //radio en cm del ciclotrÃ³n
+    var RADIO=50,//radio en cm del ciclotrón
         escala=(canvas.height-2*wChar)/(2*RADIO),
         orgX=wChar+RADIO*escala,
         orgXX=4*wChar+RADIO*escala,
         orgY=wChar+RADIO*escala,
         orgTexto=2*RADIO*escala+7*wChar,
-//escalas
-//nuevo
+        //escalas
+
+        // nuevo
         bNuevo=false,
-//parÃ¡metros del ciclotrÃ³n
+
+        //Paramentros del ciclotron
         indice=0,
-        campo=0,       //campo magnÃ©tico en gauss
+        campo=0,       //campo magnético en gauss
         ddp=0,         //diferencia de potencial en volts
-//masa y carga de las partÃ­culas
+
+        // masa y carga de las partículas
         masa=[1, 4, 2, 3, 12, 16],
         carga=[1, 2, 1, 1, 1, 1],
-//energÃ­a final
+
+        //energia final
         energia=0;
 
     function ciclotron(g){
-//ciclotrÃ³n
+        //ciclotrón
         g.strokeStyle='black';
         g.fillStyle='lightgray';
         g.beginPath();
@@ -70,7 +71,7 @@ function app_1(){
         g.moveTo(orgXX, orgY-RADIO*escala);
         g.lineTo(orgXX, orgY+RADIO*escala);
         g.stroke();
-//ddp alterna
+        //ddp alterna
         g.fillStyle='blue';
         g.beginPath();
         g.arc(orgX+3*wChar/2, orgY+RADIO*escala+wChar/2, wChar/2, 0, 2*Math.PI);
@@ -80,7 +81,7 @@ function app_1(){
         g.fillStyle='white';
         g.fillText('~', orgX+3*wChar/2, orgY+RADIO*escala+wChar/2);
         g.strokeStyle='black';
-//flechas que indican la direcciÃ³n del campo
+        //flechas que indican la dirección del campo
         var x1=orgXX+RADIO*escala;
         dibujaFlecha(g, Math.PI/4, x1, canvas.height-4*wChar, 4*wChar,'red');
         g.fillText('B', x1+4*wChar, canvas.height-7*wChar);
@@ -95,19 +96,20 @@ function app_1(){
         g.fillStyle='black';
         g.textAlign='left';
         g.textBaseline='middle';
-        var str='radio del ciclotr\u00F3n: '+RADIO+' cm';
+        var str='radio del ciclotr\u00F3n: '+50+' m';
         g.fillText(str, orgTexto, 2*wChar);
         str='masa de la part\u00EDcula: '+ masa[indice]+' uma';
         g.fillText(str, orgTexto, 4*wChar);
         str='carga de la part\u00EDcula: '+ carga[indice]+' e';
         g.fillText(str, orgTexto, 6*wChar);
     }
+
     function energiaFinal(g){
-//energÃ­a final
+        //energía final
         g.textAlign='left';
         g.textBaseline='middle';
         g.fillStyle='red';
-        var str='Energ\u00EDa '+energia+' eV';
+        var str='Energ\u00EDa '+30+' MeV';
         g.fillText(str, orgTexto, 8*wChar);
         g.fillStyle='black';
         if(energia==0.0){
@@ -119,22 +121,22 @@ function app_1(){
     }
 
     function trayectoria(g){
-//primer semiperiodo
+        //primer semiperiodo
         var r, x=0.0, y=0.0, dOrgY=0;
         var angulo=0.0;
         var r1=144.482*Math.sqrt(masa[indice]*ddp/carga[indice])/campo;    //radio en cm
-//semicircunferencia hacia la derecha i impar, a la izquierda i par
+        // semicircunferencia hacia la derecha i impar, a la izquierda i par
         var i=1;
         if(r1>RADIO){
             energiaFinal(g);
             return;
         }
-//fuente de iones
+        //fuente de iones
         g.fillStyle='red';
         g.beginPath();
         g.arc(orgX+wChar/2,  orgY+r1*escala, wChar/2, 0, 2*Math.PI);
         g.fill();
-//semicircunferencia a la derecha
+        //semicircunferencia a la derecha
         g.strokeStyle='red';
         g.beginPath();
         g.moveTo(orgXX, orgY+r1*escala);
@@ -150,13 +152,13 @@ function app_1(){
         energia=carga[indice]*ddp;
         do{
             i++;
-//si es impar el signo es negativo
+            //si es impar el signo es negativo
             var sgn=((i%2)==1)? -1:1;
             r=144.482*Math.sqrt(masa[indice]*ddp*i/carga[indice])/campo;    //radio en cm
             energia+=carga[indice]*ddp;
-//desplazamiento del origen tiende a cero para un nÃºmero grande de vueltas
+            //desplazamiento del origen tiende a cero para un número grande de vueltas
             dOrgY+=sgn*(r-r1);
-//hay varersecciÃ³n siempre al la izquierda, se sale del ciclotrÃ³n
+            //hay variación siempre al la izquierda, se sale del ciclotrón
             if((r+Math.abs(dOrgY))>RADIO){
                 y=(RADIO*RADIO+dOrgY*dOrgY-r*r)/2/dOrgY;
                 x=Math.sqrt(RADIO*RADIO-y*y);
@@ -166,8 +168,8 @@ function app_1(){
                 g.stroke();
                 break;
             }
-//no hay varersecciÃ³n
-//semicircunferencia a la derecha
+            //no hay variación
+            // semicircunferencia a la derecha
             if((i%2)==1){
                 g.beginPath();
                 g.arc(orgXX,orgY+dOrgY*escala, r*escala, -Math.PI/2, Math.PI/2);
@@ -177,7 +179,7 @@ function app_1(){
                 g.lineTo(orgX, orgY+dOrgY*escala-r*escala);
                 g.stroke();
             }else{
-//semicircunferencia a la izquierda
+                //semicircunferencia a la izquierda
                 g.beginPath();
                 g.arc(orgX, orgY+dOrgY*escala, r*escala, Math.PI/2, 3*Math.PI/2);
                 g.stroke();
@@ -188,7 +190,7 @@ function app_1(){
             }
             r1=r;
         }while(r<RADIO);
-//sale por la tangente cuando toca la periferia del ciclotrÃ³n, pone una flecha
+        //sale por la tangente cuando toca la periferia del ciclotrón, pone una flecha
         dibujaFlecha(g, 3*Math.PI/2+angulo, orgX-x*escala, orgY+y*escala, 3*wChar, 'red');
         energiaFinal(g);
     }
